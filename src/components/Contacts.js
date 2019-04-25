@@ -25,9 +25,21 @@ export class Contacts extends Component {
     ]
   };
 
+  deleteClickHandler = id => {
+    const { contacts } = this.state;
+    const updatedContacts = contacts.filter(contact => contact.id !== id);
+    this.setState({ contacts: updatedContacts });
+  };
+
   render() {
     const contacts = this.state.contacts.map(contact => {
-      return <Contact key={contact.id} contact={contact} />;
+      return (
+        <Contact
+          key={contact.id}
+          contact={contact}
+          deleteClickHandler={this.deleteClickHandler.bind(this, contact.id)}
+        />
+      );
     });
 
     return <>{contacts}</>;
