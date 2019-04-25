@@ -30,7 +30,7 @@ export class Contacts extends Component {
       return <Contact key={contact.id} contact={contact} />;
     });
 
-    return <div>{contacts}</div>;
+    return <>{contacts}</>;
   }
 }
 
