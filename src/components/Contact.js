@@ -13,13 +13,18 @@ class Contact extends Component {
   };
 
   render() {
-    const { name, email, phone, id } = this.props.contact;
+    const { name, email, phone } = this.props.contact;
     const { showContactInfo } = this.state;
     return (
       <div className="card card-body mb-3">
         <h4>
           {name}{" "}
-          <i onClick={this.handleShowClick} className="fas fa-sort-down" />
+          <i
+            onClick={this.handleShowClick}
+            className={
+              showContactInfo ? "fa fa-angle-down" : "fa fa-angle-right"
+            }
+          />
         </h4>
         {showContactInfo ? (
           <ul className="list-group">
